@@ -16,12 +16,14 @@ var competenciaController = require('./controladores/competenciasController');
 
 //Obtiene todas las competencias sin filtro alguno.
 app.get('/competencias', competenciaController.getCompetitions);
-// // Obtiene todos los generos existentes para listarlos.
-// app.get('/generos', recomendadorController.getGenders);
-// //Obtiene las recomendaciones para el usuario.
-// app.get('/peliculas/recomendacion', recomendadorController.getRecommendations);
-// //Obtiene todas las peliculas dado un Id.
-// app.get('/peliculas/:id', recomendadorController.getMoviesById);
+//Obtiene todas las competencias sin filtro alguno.
+app.post('/competencias', competenciaController.setCompetition);
+// Obtiene las dos opciones de película a enfrentar.
+app.get('/competencias/:id/peliculas', competenciaController.getMovieOptions);
+// Agrega voto a una competencia.
+app.post('/competencias/:idCompetencia/voto', competenciaController.setVote);
+// Obtiene las tres películas más votadas de una competencia
+app.get('/competencias/:id/resultados', competenciaController.getResults);
 
 //seteamos el puerto en el cual va a escuchar los pedidos la aplicación
 var puerto = '8080';

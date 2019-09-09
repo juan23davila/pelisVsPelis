@@ -24,13 +24,10 @@ function CompetenciasController () {
 		var cantidad = data.length;
 		var idColor = 1;
 		var idColorCrece = true;
-		console.log("por aqui si entra");
-		console.log(data);
 		for (i = 0; i < cantidad; i++) {
 			// Se clona la plantilla y la nueva copia ya no es una plantilla
 			var divCompetencia = $(".competenciaPlantilla").clone().removeClass("competenciaPlantilla");
 			// Se coloca el id correcto (data[i].id) de cada competencia en los links de acciones
-			console.log("data[i].id: "+data[i].id);
 			$(divCompetencia).find('.link').each( function(){
 				$( this ).attr("href",$( this ).attr("href")+data[i].id);
 			});
